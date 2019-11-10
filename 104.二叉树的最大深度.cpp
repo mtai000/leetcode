@@ -14,14 +14,16 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <math.h>
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        if(!root)
+        /*if(!root)
             return 0;
         int lmax = maxDepth(root->left);
         int rmax = maxDepth(root->right);
-        return lmax > rmax ? ++lmax : ++rmax;
+        return lmax > rmax ? ++lmax : ++rmax;*/
+        return !root ? 0 : max(maxDepth(root->left),maxDepth(root->right)) + 1;
     }
 };
 // @lc code=end
