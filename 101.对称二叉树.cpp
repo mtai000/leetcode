@@ -18,8 +18,12 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
+        return ismirror(root);
+        /**/
+    }
+    bool ismirror(TreeNode* root)
+    {
         if(!root || root->left == root->right) return true;
-        
         TreeNode* ltree = root->left;
         TreeNode* rtree = root->right;
         stack<TreeNode*> lstack;
@@ -52,6 +56,18 @@ public:
         }
         return true;
     }
+
+
+    bool ismirror(TreeNode* p,TreeNode* q){
+        if(!p&&!q)//都为NULL
+            return true;
+        if(!p||!q)//有一个为NULL
+            return false;
+        if(p->val==q->val)
+            return ismirror(p->left,q->right)&&ismirror(p->right,q->left);
+        return false;
+    }
+
 };
 // @lc code=end
 
