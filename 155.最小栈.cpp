@@ -24,14 +24,7 @@ public:
         LNode *ln = new LNode();
         ln->val = x;
         ln->next = head;
-        if(head)
-        {
-            ln->min = min(x,ln->next->min);
-        }
-        else
-        {
-            ln->min = ln->val;
-        }
+        ln->min = !head || x < head->min ? x : head->min;
         head = ln;
     }
     
