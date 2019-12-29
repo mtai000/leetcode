@@ -1,6 +1,6 @@
 /* Pascal's Triangle
  * 
- * [Easy] [AC:65.1% 51.1K of 78.5K] [filetype:cpp]
+ * [Easy] [AC:65.1% 51.4K of 79K] [filetype:cpp]
  * 
  * 给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
  * 
@@ -30,14 +30,30 @@
 class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
-        vector<vector<int>> tr = new vector<vecttor<int>>();
-        return tr;
+        vector<vector<int>> pascalTr;
+        if(!numRows) return pascalTr;
+        vector<int> first;
+        first.push_back(1);
+        pascalTr.push_back(first);
+        for(int i = 0 ; i < numRows-1; i++)
+        {
+            //cout << (pascalTr.size()) << endl;
+            pascalTr.push_back(gen(pascalTr[i]));
+        }
+
+        return pascalTr;
     }
 
-    vector<int> gen(vector<int>& preRow)
+    vector<int> gen(vector<int>& base)
     {
-        vector<int> row = new vector<int>();
-
-        return row;
+        vector<int> temp; 
+        temp.push_back(1);
+        for(int i = 0 ; i < base.size() - 1; i++)
+        {
+            temp.push_back(base[i] + base[i+1]);
+        }
+        temp.push_back(1);
+        return temp;
     }
 };
+
