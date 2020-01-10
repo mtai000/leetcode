@@ -50,7 +50,7 @@ public:
     {
         vector<int> temp; 
         temp.push_back(1);
-        for(int i = 0 ; i < temp.size() - 1; i++)
+        for(int i = 0 ; i < base.size() - 1; i++)
         {
             temp.push_back(base[i] + base[i+1]);
         }
