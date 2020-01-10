@@ -32,30 +32,22 @@
 class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
-        vector<vector<int>> pascalTr;
-        if(!numRows) return pascalTr;
-        vector<int> first;
-        first.push_back(1);
-        pascalTr.push_back(first);
-        for(int i = 0 ; i < numRows-1; i++)
+        vector<vector<int>> rst(numRows,vector<int>());
+
+        for(int i = 0 ; i < numRows ; i++)
         {
-            //cout << (pascalTr.size()) << endl;
-            pascalTr.push_back(gen(pascalTr[i]));
+            rst[i].resize(i+1);
+            rst[i][0] = 1;
+            rst[i][i] = 1;
         }
 
-        return pascalTr;
-    }
-
-    vector<int> gen(vector<int>& base)
-    {
-        vector<int> temp; 
-        temp.push_back(1);
-        for(int i = 0 ; i < base.size() - 1; i++)
+        for(int i = 1 ; i < numRows; i++)
         {
-            temp.push_back(base[i] + base[i+1]);
+            for(int j = 1; j < rst[i-1].size(); j++)
+                rst[i][j] = rst[i-1][j-1] + rst[i-1][j];
         }
-        temp.push_back(1);
-        return temp;
+
+        return rst;
     }
 };
 
