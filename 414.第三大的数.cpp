@@ -29,11 +29,6 @@ public:
                     break;
                 }
             }
-            for(int j = 0; j < max.size() ; j++)
-            {
-                cout << max[j];
-            }
-            cout << endl;
         }
         return (max.size() == 3) && (max[2] != max[1]) ? max[2] : max[0];
     }
