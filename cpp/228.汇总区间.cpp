@@ -30,15 +30,7 @@ public:
 			{
                 if(s.empty())
                 {
-<<<<<<< HEAD
-
-                    
-                    //    cout << "ii = " << i<< endl;
                     base = i;
-                    //scout << base<< endl;
-=======
-                    base = i;
->>>>>>> refs/remotes/origin/master
                     s.push(i);
                 }
                 else
@@ -50,14 +42,7 @@ public:
                     }
                     else
                     {
-<<<<<<< HEAD
-
-                //    cout << base<<endl;
                         push_to_v(s,v,base);
-                  //      cout << "i = " << i<< endl;
-=======
-                        push_to_v(s,v,base);
->>>>>>> refs/remotes/origin/master
                         base = i;
                         s.push(i);
                     }           
