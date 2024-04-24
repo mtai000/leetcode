@@ -7,12 +7,18 @@
 // @lc code=start
 class NumArray {
 public:
-    NumArray(vector<int>& nums) {
-
+    vector<int> sum;
+    NumArray(vector<int>& nums) {   
+        int len = nums.size();
+        sum.resize(len + 1); 
+        for(int i = 0;i < nums.size();i++)
+        {
+            sum[i+1] += sum[i] + nums[i];
+        }
     }
     
     int sumRange(int left, int right) {
-
+        return sum[right + 1] - sum[left];
     }
 };
 
